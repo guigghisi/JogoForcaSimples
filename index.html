@@ -65,18 +65,18 @@
             } else {
                 var letraCerta = false;
                 for (var i = 0; i < palavraCadastrada.length; i++) {
-                    if (letra == palavraCadastrada[i]) {
+                    if (letra.toLowerCase() == palavraCadastrada[i].toLowerCase()) {
                         letraCerta = true;
                     }
                 }
                 if (letraCerta == true) {
                     resposta.innerHTML = "Letra certa!";
                     for (var i = 0; i < palavraCadastrada.length; i++) {
-                        if (letra == palavraCadastrada[i]) {
+                        if (letra.toLowerCase() == palavraCadastrada[i].toLowerCase()) {
                             palavraForca[i] = letra;
                         }
                     }
-                    document.getElementById("outRespostaLetraCerta").innerHTML = palavraForca.join(" ");
+                    document.getElementById("outRespostaLetraCerta").innerHTML = palavraForca.join(" ").toLowerCase();
                 } else {
                     resposta.innerHTML = "Letra errada!";
                     document.getElementById("outErro").innerHTML += letra + " ";
@@ -90,7 +90,7 @@
                 }
                 inLetra.value = "";
             }
-            if (palavraForca.join("") == palavraCadastrada.join("")) {
+            if (palavraForca.join("").toLowerCase() == palavraCadastrada.join("").toLowerCase()) {
                 final.innerHTML = "Parabéns, você ganhou!";
                 btTentetiva.disabled = true;
                 inLetra.disabled = true;
